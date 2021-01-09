@@ -1,0 +1,398 @@
+#id_back_top {
+    width: 100%;
+    height: 65px;
+    float: left;
+}
+
+.col .pro_price {
+    font-weight: 700;
+    font-size: 16px;
+    color: #f50!important;
+}
+
+.col p {
+    width: 100%;
+    float: left;
+    line-height: 10px;
+}
+
+.col .pro_acreage {
+    width: 300px;
+    float: left;
+}
+
+.col span {
+    color: #888;
+    padding: 0;
+    display: block;
+    float: left;
+    width: 100px;
+    font-weight: 400;
+}
+
+#myCarousel.carousel.slide {
+    width: 900px;
+}
+
+.container dl {
+    display: flex;
+    border-bottom: 1px solid #e6e6e6;
+    width: 100%;
+    margin: 0;
+}
+
+dl {
+    margin: 0 0 15px 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.container dl dt {
+    width: 12rem;
+    background: #f9f9f9;
+    padding: 5px 10px;
+    line-height: 30px;
+}
+
+dl dt {
+    text-align: left;
+}
+
+.container .info_phong {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    overflow: hidden;
+    display: flex;
+}
+
+.container .info_phong .i-left {
+    width: 50%;
+}
+
+.container .info_phong .i-right {
+    width: 50%;
+}
+
+.container dl dd {
+    width: calc(100% - 130px);
+    padding: 5px 10px;
+    line-height: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+dd {
+    margin-left: 10px;
+    margin-inline-start: 40px;
+}
+
+.line {
+    height: 1px;
+    background: #e6e6e6;
+    margin: 24px 0;
+}
+
+
+/* comment */
+
+.display-open {
+    display: block !important;
+}
+
+.tab_label {
+    margin-bottom: 15px;
+    margin-top: 11px;
+}
+
+.cls::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.comments ._contents ._level_0 {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.comments ._contents ._level_0 p ._avatar {
+    float: left;
+    width: 25px;
+    height: 25px;
+    background: #ccc;
+    margin-right: 7px;
+    text-align: center;
+    color: #666;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 26px;
+    font-weight: 600;
+}
+
+.comments #comment_add_form {
+    margin-top: 3rem;
+}
+
+.comments #comment_add_form .label_form {
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: block;
+    font-size: 15px;
+}
+
+.comments ._textarea {
+    float: none;
+    width: 100%;
+    padding-right: 0px;
+}
+
+.comments ._textarea textarea {
+    display: block;
+    overflow: hidden;
+    background: #fff;
+    min-height: 123px;
+    border: 1px solid #EEEEEE;
+    padding: 10px;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-comment-mb,
+.btn-comment-mb-rep {
+    background: none repeat scroll 0 0 #2080CA;
+    border: none;
+    font-size: 15px;
+    color: #fff;
+    padding: 8px 12px 9px;
+    border-radius: 2px;
+    webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    transition: all .5s ease;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+}
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+/*reset css*/
+
+h1 {
+    font-size: 1.5em;
+    margin: 10px;
+}
+
+
+/****** Style Star Rating Widget *****/
+
+#rating {
+    border: none;
+    float: left;
+}
+
+#ratings {
+    display: block;
+    float: left;
+    margin-top: 5px;
+}
+
+#rating>input {
+    display: none;
+}
+
+
+/*ẩn input radio - vì chúng ta đã có label là GUI*/
+
+#rating>label:before {
+    margin: 5px;
+    font-size: 1.5em;
+    font-family: FontAwesome;
+    display: inline-block;
+    content: "\f005";
+}
+
+
+/*1 ngôi sao*/
+
+#rating>.half:before {
+    content: "\f089";
+    position: absolute;
+}
+
+
+/*0.5 ngôi sao*/
+
+#rating>label {
+    color: #ddd;
+    float: right;
+}
+
+
+/*float:right để lật ngược các ngôi sao lại đúng theo thứ tự trong thực tế*/
+
+
+/*thêm màu cho sao đã chọn và các ngôi sao phía trước*/
+
+#rating>input:checked~label,
+#rating:not(:checked)>label:hover,
+#rating:not(:checked)>label:hover~label {
+    color: #FFD700;
+}
+
+
+/* Hover vào các sao phía trước ngôi sao đã chọn*/
+
+#rating>input:checked+label:hover,
+#rating>input:checked~label:hover,
+#rating>label:hover~input:checked~label,
+#rating>input:checked~label:hover~label {
+    color: #FFED85;
+}
+
+.rating_note {
+    background-color: #2080CA;
+    color: #FFF;
+    padding: 4px 10px;
+    position: relative;
+    border-radius: 0 4px 4px 0;
+    display: inline-block;
+    margin-left: 28px;
+    margin-top: 5px;
+}
+
+.rating_note::after {
+    content: '';
+    border-style: solid;
+    border-width: 16px 12px 12px 0;
+    border-color: transparent #2080CA transparent transparent;
+    position: absolute;
+    top: 0;
+    left: -12px;
+}
+
+
+/* popup report */
+
+.fa-exclamation-circle {
+    background-color: white;
+    color: red;
+    padding: 1rem 1rem;
+    cursor: pointer;
+    position: fixed;
+    bottom: 3rem;
+    right: 1rem;
+    font-size: 3rem;
+}
+
+
+/* The popup form - hidden by default */
+
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 3rem;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+
+/* Add styles to the form container */
+
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+
+/* Full-width input fields */
+
+.form-container input[type=text] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+
+/* When the inputs get focus, do something */
+
+.form-container input[type=text]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+
+/* Set a style for the submit/login button */
+
+.form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+
+/* Add a red background color to the cancel button */
+
+.form-container .cancel {
+    background-color: red;
+}
+
+
+/* Add some hover effects to buttons */
+
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+
+/* back-head */
+
+#bot {
+    right: 2rem;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0;
+}
+
+.tPhRLe,
+.tPhRLe span {
+    background-size: 13px 12px;
+    height: 13px;
+    top: 1px;
+    width: 65px;
+}
+
+
+/* hiện sao */
+
+.Fam1ne {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAmCAQAAAAYCMGrAAAA+klEQVR4AcWV4cbtMBBFF0MIVUopoVSrhDDv/3gf/RFRpzdNOty1HiBO99mzeYWgCMZMKCPGrCgrxiSUhCkDeukxJKCXAUMiehkxw6FZhxEzmp0x4kCzByYISqlYdal0supS6WrVpdLEK0YSamJiJOPY0c/uOG4s6CcXfuKJaJcRzyNCQJsNiF1sRTR1hP11NNJ8RCrONOPRf+r7J+TZgQ5CNfMOYvW/2YxDqzqA/57+gVY9eiakrnyZEGXDsaE3p/4JScwPX3rtnZATDxnPWT7X16XAHaH8HWNrlxJD9TyGti5tCM84zpZe+RxNjeX9tZqLaGoMxN/P/wHP5Vw+8ZxnEQAAAABJRU5ErkJggg==);
+    background-repeat: repeat-x;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+}
+
+.Fam1ne span {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAmBAMAAABALxQTAAAAFVBMVEVMaXH4twP4twP4twP4twP4twP4twP7w8S/AAAAB3RSTlMAFv5uPpvQloUsTQAAAMFJREFUeAGE0TEOgzAMQFEXoDNiYC6/wFxxAsTADDkB5f6HqNRENXUi8TYiRfnY8lNXkjBOkuBWSeAhsYJOYiW9xO4MEqshkTbCSyIH7GLdgFasHHgmwkikZQD6OROZRG4Hxju8o/TNhbNhCqkOxaZDVKdxNnq/EjUS/A2o0PuXpyVeb9bjDWY9QSWXDQfBbtbjtWY9bM4sqfx+5yYt8wNcAFEzrGGkk5668KsFrKewPtQ3aFqh8WOnYZ+lIBQkgykAWk8rlAqcHfQAAAAASUVORK5CYII=);
+    background-repeat: repeat-x;
+    display: block;
+}

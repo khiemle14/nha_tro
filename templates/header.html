@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/search.css">
+{#    <script src="/static/js/save.js"></script>#}
+    </head>
+
+<body>
+    <header id="header" class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pull-left">
+                        <a class="logo" href="/"><img class="img-responsive" src="/static/img/logothuetro.png">EasyAccomod</a>
+                    </div>
+                    <div class="pull-right">
+                    {% if user.is_authenticated %}
+                        {% if user.is_owner %}
+                            <a href="/profile/">
+                            <div class="header-top-avatar"><img class="img-responsive" src="http://phongtot.vn/themes/client/img/avatar.png"></div>
+
+                            </a>
+                        {% endif %}
+                        {% else %}
+                        <div class="header-top-avatar"><img class="img-responsive" src="http://phongtot.vn/themes/client/img/avatar.png"></div>
+
+                    {% endif %}
+                        {% if not user.is_authenticated %}
+                        <div class="header-top-user">
+                            <div class="user-login"><a  href="/login/" >Đăng nhập</a></div>
+                            <div class="user-register"><a href="/register/">Đăng ký</a></div>
+                        </div>
+
+                        {% else %}
+                        <div class="header-top-user">
+                            <div class="user-login">{{ user.get_username }}</div>
+                            <div class="user-login"><a  href="/logout/" >Đăng xuất</a></div>
+
+                        </div>
+                        {% endif %}
+                    </div>
+
+
+                    <div class="header_book_mark_content">
+                        <a class="header_book_mark" href="javascript: void(0)"> <i class="fa fa-heart" onclick="openSave()" id="show_care"></i> </a>
+                    </div>
+                               <div class="header_book_mark_list" id="mySave">
+                            <span class="arrow"></span>
+                            <p class="notify_header">Tin đã lưu</p>
+
+                            <div class="header_book_mark_list_content">
+                                <ul id="book_mark_item">
+                                    <div id="caredview"></div>
+                                </ul>
+                            </div>
+                        </div>
+                    {% if user.is_authenticated %}
+                        {% if user.is_owner %}
+                    <div class="pull-right">
+                        <a class="btn btn-submit-room" href="/post/">Đăng tin</a>
+                    </div>
+                    {% endif %}
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <script type="text/javascript">
+        $("#show_care").on("click",function(e){
+            $.ajax({
+                url:'/caredview/',
+                type:'GET',
+                data:{
+                    care:'care',
+                },
+                success: function (response){
+
+                  $('#caredview').html(response);
+                },
+                error:function (response){
+                    alert('bye')
+                }
+            })
+        });
+        function openSave() {
+                var popup = document.getElementById("mySave");
+                popup.classList.toggle("show");
+}
+    </script>
+</body>
+
+</html>

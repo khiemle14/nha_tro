@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+        
+        .header_book_mark_list {
+            position: absolute;
+            top: 36px;
+            right: 72px;
+            width: 400px;
+            background: #fff;
+            border: 1px solid #aaa;
+            color: #222;
+            list-style: none;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            z-index: 9;
+            display: none;
+        }
+        
+        p {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .header_user {
+            width: auto;
+            float: right;
+            list-style: none;
+        }
+        
+        .header_book_mark_list .arrow {
+            background: url(/img/arrow_top.png) no-repeat scroll 0 0 transparent;
+            height: 8px;
+            right: 86px;
+            position: absolute;
+            z-index: 99;
+            top: -8px;
+            width: 12px;
+        }
+        
+        .header_book_mark_list .notify_header {
+            text-align: left;
+            background: #eee;
+            overflow: hidden;
+            font-weight: 700;
+            width: 100%;
+            float: left;
+            padding: 8px 10px;
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+        
+        .header_book_mark_list ul {
+            width: 100%;
+            float: left;
+            padding-left: 0;
+            margin-bottom: 0;
+            /* list-style: none; */
+        }
+        
+        .header_book_mark_list ul li {
+            width: 100%;
+            float: left;
+            list-style: none;
+            border-bottom: #eee 1px solid;
+            padding: 10px 10px;
+        }
+        
+        .header_book_mark_list ul li .city {
+            font-size: 11px;
+            color: #999;
+            font-weight: 400;
+        }
+        
+        .header_book_mark_list ul li .image {
+            width: 80px;
+            height: 60px;
+            float: left;
+            overflow: hidden;
+        }
+        
+        .header_book_mark_list ul li .info {
+            padding-left: 90px;
+        }
+        
+        .header_book_mark_list ul li .title {
+            width: 100%;
+            float: left;
+            font-weight: 700;
+            line-height: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .header_book_mark_list ul li .price {
+            width: 50%;
+            float: left;
+            display: block;
+            font-weight: 700;
+            color: red;
+        }
+        
+        .close {
+            display: block;
+            float: right;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: red;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header_book_mark_list" style="display: block;">
+        <span class="arrow"></span>
+        <p class="notify_header">Tin đã lưu</p>
+        <div class="header_book_mark_list_content">
+            <ul id="book_mark_item">
+                <!-- <li class="book_mark_item">
+                    <a class="image" href="#">
+                        <img src="img\quantam_1.jpg">
+                    </a>
+                    <div class="info">
+                        <a href="#" class="title">
+              Flc green home 18 phạm hùng 78m² 3 phòng ngủ full đồ đẹp - cho thuê chung cư cao cấp                              
+              <span class="city">- Quận Nam Từ Liêm</span>
+           </a>
+                        <span class="price">10,000,000 đ</span>
+                        <div class="close">×</div>
+                    </div>
+                </li>
+                <li class="book_mark_item">
+                    <a class="image" href="#">
+                        <img src="img\quantam_2.jpg">
+                    </a>
+                    <div class="info">
+                        <a href="#" class="title">
+              Cho thuê phòng trọ mặt tiền quận 7 - kim lân                              
+              <span class="city">- Quận 7</span>
+           </a>
+                        <span class="price">2,000,000 đ</span>
+                        <div class="close">×</div>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+    <script>
+        const items = [{
+            name: 'Flc green home 18 phạm hùng 78m² 3 phòng ngủ full đồ đẹp - cho thuê chung cư cao cấp',
+            city: '- Quận Nam Từ Liêm',
+            price: '10,000,000 đ',
+            image: 'image' + '/' + 'quantam_1.jpg',
+
+        }]
+
+        function add() {
+            items.push({
+                name: 'Flc green home 18 phạm hùng 78m² 3 phòng ngủ full đồ đẹp - cho thuê chung cư cao cấp',
+                city: '- Quận Nam Từ Liêm',
+                price: '10,000,000 đ',
+                image: 'image' + '/' + 'quantam_1.jpg',
+            })
+            render()
+        }
+
+        function remove(index) {
+            items.splice(index, 1)
+            render();
+        }
+
+        function render() {
+            const html = items.map(item => `
+            <li class="book_mark_item">
+                    <a class="image" href="#">
+                        <img src="${item.image}">
+                    </a>
+                    <div class="info">
+                        <a href="#" class="title">
+              ${item.name}                              
+              <span class="city">${item.city}</span>
+           </a>
+                        <span class="price">${item.price}</span>
+                        <div class="close">×</div>
+                    </div>
+                </li>
+        `).join('')
+            document.getElementById('book_mark_item').innerHTML = html
+            var deleteButtons = document.getElementsByClassName('close')
+            for (let i = 0; i < deleteButtons.length; i++) {
+                deleteButtons[i].addEventListener("click", function() {
+                    remove(i)
+                })
+            }
+        }
+        document.getElementById("btn-add").addEventListener('click', add);
+        render();
+    </script>
+</body>
+
+</html>

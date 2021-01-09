@@ -1,0 +1,75 @@
+                <div class="box-header">
+            <h1 class="box-title text-left">Khu vực nổi bật</h1>
+        </div>
+        <div class="box-body">
+            <div class="row quick_search">
+                <div class="col-md-6 pr-0">
+                    <div class="item hcm" style="background-image: url('https://tromoi.com/frontend/home/images/thanh-pho/ho-chi-minh.jpg');">
+                        <a href="hcm">Hồ Chí Minh <span></span></a>
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <div class="row hn">
+                        <div class="col-md-6 px-1 pb-1">
+                            <div class="item" style="background-image: url('https://tromoi.com/frontend/home/images/thanh-pho/ha-noi.jpg');">
+                                <a href="/hn/">Hà Nội <span></span></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pl-0 pb-1">
+                            <div class="item" style="background-image: url('https://tromoi.com/frontend/home/images/thanh-pho/thua-thien-hue.jpg');">
+                                <a href="/hue/">Thừa Thiên Huế <span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row hn">
+                        <div class="col-md-6 px-1">
+                            <div class="item " style="background-image: url('https://tromoi.com/frontend/home/images/thanh-pho/da-nang.jpg');">
+                                <a href="/danang/">Đà Nẵng <span></span></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pl-0">
+                            <div class="item " style="background-image: url('https://tromoi.com/frontend/home/images/thanh-pho/can-tho.jpg');">
+                                <a href="/cantho/">Cần Thơ <span></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    {% if not searched %}
+                    <div class="hot-post_title">
+                    Không tìm thấy kết quả
+                    </div>
+
+                {% else %}
+                <div class="hot-post_title">
+                    Danh sách phòng theo yêu cầu tìm kiếm
+                </div>
+                <ul class="room_post_list">
+                    {% for item in searched %}
+                    <li class="room_post rp1">
+                        <div class="room_post_img">
+                            <a href="/room/{{ item.id }}"><img src="{{ item.roomimage_set.all.0.images.url }}" alt=""></a>
+                        </div>
+                        <div class="room_post_content">
+                            <p class="price"><span>{{ item.price }} triệu đồng/tháng</span></p>
+                            <h3 class="title"><a href="/room/{{ item.id }}">{{ item.title|truncatewords_html:8|safe}}</a></h3>
+
+                            <div class="intro">{{ item.service_charge}}
+                            </div>
+                            <div class="info1">
+                                Địa chỉ :  {{ item.address }}
+                            </div>
+                            <div class="info2">
+                                Gần các địa chỉ: {{ item.nearby }}
+                            </div>
+
+                        </div>
+                        <div class="view">
+                         <i class="fa fa-eye"></i>{{ item.viewed }}
+                        </div>
+                        <div class="clear"></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}

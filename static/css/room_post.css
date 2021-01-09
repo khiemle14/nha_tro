@@ -1,0 +1,31 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul .room_post_list {
+    list-style: none;
+}
+
+.room_post {
+    width: 70%;
+    padding: 10px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+
+.room_post .room_post_img {
+    width: 200px;
+    float: left;
+    margin-right: 20px;
+}
+
+.room_post_content .price {
+    float: right;
+    color: red;
+    font-weight: bolder;
+}

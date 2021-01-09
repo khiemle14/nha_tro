@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Đăng nhập
+{% endblock %}
+{% block extra_head %}
+    <link rel="stylesheet" href="/static/css/dangnhap.css">
+{% endblock %}
+
+{% block content %}
+    <div id="header"></div>
+
+    <div class="login_form">
+        <div class="title"> Đăng Nhập </div>
+        <div class="form-group">
+            <a href="#" class="btn btn-primary btn-block ">
+                <i class="fab fa-facebook-f"></i> Đăng nhập bằng tài khoản Facebook </a>
+        </div>
+        <div class="form-group">
+            <a href="#" class="btn btn-danger btn-block">
+                <i class="fab fa-google text-white"></i> Đăng nhập bằng tài khoản Google </a>
+        </div>
+        <div class="text-center"> Hoặc </div>
+        <form class="login" action="#" method="post" >
+            {% csrf_token %}
+            <div class="form-group"> {{ form.username }}</div>
+            <div class="form-group"> {{ form.password }}</div>
+            <div class="item_message">
+                <p class="message text-danger"></p>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+{#                  {{ form.remember_me }} Ghi nhớ tài khoản#}
+                </label>
+                <a href="#" title="Quên mật khẩu" class="float-right" id="hplForgotPass">Quên mật khẩu ?</a>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="action" value="login">
+                <button class="btnLogin btn btn-warning btn-block btn-lg text-white" type="submit">Đăng nhập</button>
+            </div>
+            <div class="clear"></div>
+        </form>
+    </div>
+    <div class="login_form border-0">
+        <div class="form-text">
+            <p> Chưa có tài khoản? </p>
+        </div>
+        <div class="form-group">
+            <a href="{% url 'register' %}" class="btn btn-outline-dark btn-block font-weight-bold">ĐĂNG KÍ NGAY</a></div>
+    </div>
+
+    <script src="{% static 'js/dangnhap.js' %}"></script>
+    <script>
+        var form_fields = document.getElementsByTagName('input')
+        form_fields[2].placeholder="Tên tài khoản";
+        form_fields[3].placeholder="Mật khẩu";
+        let i =0;
+        for (var field in form_fields)
+        {
+            if (i>3){
+                break;
+            }
+            form_fields[field].className += ' form-control';
+            i++;
+        }
+        {% if form.errors %}
+            alert("Tên tài khoản hoặc mật khẩu không đúng")
+        {% endif %}
+
+    </script>
+{% endblock %}

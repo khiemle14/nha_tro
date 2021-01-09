@@ -1,0 +1,25 @@
+{% load mathfilters %}
+<div class="tab_label"><span>Có <strong>{{ comments.count }}</strong> bình luận, đánh giá</span> <strong>về bài đăng</strong>
+
+            </div>
+{% for comment in comments %}
+                        <div class="_item 931 _level_0 _sub_0">
+                        <article itemprop="review" itemscope="" itemtype="http://schema.org/Review">
+                            <p class="clearfix cls" itemprop="author" itemtype="http://schema.org/Person">
+                                <span class="_avatar">{{ comment.comment_user.full_name.0 }}</span>
+                                <span class="_name" itemprop="name">{{ comment.comment_user.full_name }}</span>
+                            </p>
+                            <div class="_control ">
+                                <g-review-stars aria-hidden="true"><span class="Fam1ne tPhRLe" role="img"><span style="width:{{ comment.vote|mul:13 }}px"></span></span>
+                                </g-review-stars>
+                                <time itemprop="datePublished" content="2020-12-19 22:33" datetime="2020-12-19 22:33" title="2020-12-19 22:33">
+                                    {{ comment.time}}</time>
+                            </div>
+                            <div class="_wrap">
+                                <p class="_content " itemprop="description"> {{ comment.comment }}</p>
+
+
+                            </div>
+                        </article>
+                    </div>
+{% endfor %}

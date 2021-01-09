@@ -1,0 +1,18 @@
+
+
+
+{% for item in cared_roomlist %}
+                                    <li class="book_mark_item">
+                                            <a class="image" href="/room/{{ item.room.id }}">
+                                                <img src="{{ item.room.roomimage_set.all.0.images.url}}">
+                                            </a>
+                                            <div class="info">
+                                                <a href="#" class="title">
+                                                    {{ item.room.title}}
+                                      <span class="city">{{ item.address}}</span>
+                                        </a>
+                                                <span class="price">{{ item.room.price}}triệu</span>
+                                                <div class="delete">×</div>
+                                            </div>
+                                        </li>
+                                    {% endfor %}

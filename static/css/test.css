@@ -1,0 +1,1 @@
+body { font-family: sans-serif } div { display: flex; border: 1px solid #eee } .movie { display: flex; flex: 1; flex-direction: column } .movie > * { flex: 1 } h4 { margin: 0 }

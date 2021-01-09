@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ roomlist.0.type}}
+{% endblock %}
+{% block extra_head %}
+    <script src="{% static '/js/test.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="container">
+    <div class="hot-post_title">
+                    Danh sách {{ roomlist.0.type}}
+                </div>
+                <ul class="room_post_list">
+                    {% for item in roomlist %}
+                    <li class="room_post rp1">
+                        <div class="room_post_img">
+                            <a href="/room/{{ item.id }}"><img src="{{ item.roomimage_set.all.0.images.url }}" alt=""></a>
+                        </div>
+                        <div class="room_post_content">
+                            <p class="price"><span>{{ item.price }} triệu đồng/tháng</span></p>
+                            <h3 class="title"><a href="/room/{{ item.id }}">{{ item.title|truncatewords_html:8|safe}}</a></h3>
+
+                            <div class="intro">{{ item.service_charge}}
+                            </div>
+                            <div class="info1">
+                                Địa chỉ :  {{ item.address }}
+                            </div>
+                            <div class="info2">
+                                Gần các địa chỉ: {{ item.nearby }}
+                            </div>
+                            <i class="fa fa-eye"></i>{{ item.viewed }}
+                        </div>
+                        <div class="clear"></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+    </div>
+{% endblock %}

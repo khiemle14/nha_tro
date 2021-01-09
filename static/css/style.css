@@ -1,0 +1,121 @@
+body {
+    font-family: 'Open Sans', Tahoma, Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+}
+
+.pull-left {
+    float: left;
+}
+
+#id_back_top {
+    width: 100%;
+    height: 65px;
+    float: left;
+}
+
+.fa-home {
+    color: #33cc66;
+    margin-left: 0.5rem;
+}
+
+.navbar-brand img {
+    max-width: 100%;
+    height: auto;
+}
+
+.content {
+    width: 100%;
+    display: -webkit-box;
+    background: #fff;
+}
+
+.content a {
+    color: #2e3339;
+    text-decoration: none;
+}
+
+ul .room_post_list {
+    list-style-type: none;
+}
+
+.room_post {
+    width: 100%;
+    padding: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+.room_post .room_post_img {
+    width: 200px;
+    float: left;
+    margin-right: 20px;
+}
+
+.room_post_content .price {
+    float: right;
+    color: red;
+    font-weight: bolder;
+}
+
+.right_room_list {
+    width: 100%;
+}
+
+.right_room_list .rr_post {
+    padding: 5px 0px;
+    border-bottom: #2e3339 solid 1px;
+}
+
+.right_room_list .rr_post .img {
+    float: left;
+    display: block;
+    overflow: hidden;
+    width: 30%;
+}
+
+.right_room_list .rr_post a img {
+    width: 100%;
+    height: 70%;
+    padding: 5px;
+}
+
+.right_room_list .rr_post .title {
+    padding-left: 2%;
+    display: block;
+}
+
+.right_room_list .rr_post .price {
+    color: red;
+    font-weight: bold;
+}
+
+
+.clear {
+    clear: both;
+}
+.hot-room {
+    height: 350px;
+}
+
+.new-room-img {
+    height: 60%;
+    width: 100%;
+}
+
+.new-room-img img {
+    width: 100%;
+    height: 100%;
+
+}
+.room_post_img img {
+    width: 100%;
+    height: 100%;
+
+}
+.view {
+    float:right;
+    bottom:0;
+}

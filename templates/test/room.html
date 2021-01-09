@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room</title>
+</head>
+<body>
+    <ul>
+        {% for item in roomList %}
+        <li>
+            <img src="{{ item.roomimage_set.all.0.images.url }}">
+            <h1>{{ item.title }}</h1>
+            <div class="col" style="border-right: 1px solid #e5e5e5;">
+                    <p class="pro_price"> <span class="pro_lable">Giá: </span> {{ item.price }} </p>
+                    <p class="pro_acreage"> <span class="pro_lable">Diện tích: </span> {{ item.area }} </p>
+                    <p class="item_detail"> <span class="pro_lable">Địa chỉ nhà: </span> {{ item.address }}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

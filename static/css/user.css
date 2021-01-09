@@ -1,0 +1,315 @@
+#id_back_top {
+    width: 100%;
+    height: 65px;
+    float: left;
+}
+
+#header {
+    height: 65px;
+}
+
+.pt-breadcrumb .breadcrumb {
+    border-radius: 0px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #ecf0f1;
+}
+
+.breadcrumb>li {
+    display: inline-block;
+}
+
+.pt-breadcrumb .breadcrumb a {
+    text-decoration: none;
+    color: #2e3339;
+}
+
+.user_panel {
+    padding-top: 30px;
+    padding-bottom: 15px;
+    float: left;
+}
+
+.no-padding-vertical {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.user-avatar {
+    margin-bottom: 5px;
+}
+
+.user-panel-menu-item.active {
+    background-color: #33cc66;
+}
+
+.user-panel-menu-item {
+    background-color: #f1f1f1;
+    margin-bottom: 1px;
+    height: 35px;
+}
+
+.user-panel-menu-item.active a {
+    color: #ffffff;
+}
+
+.user-panel-menu-item a {
+    font-family: 'Open Sans';
+    font-size: 14px;
+    color: #2e3339;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    padding-top: 7px;
+    padding-left: 10px;
+}
+
+.user_panel {
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+.user-avatar {
+    margin-bottom: 5px;
+}
+
+.user-panel-menu-item {
+    background-color: #f1f1f1;
+    margin-bottom: 1px;
+    height: 35px;
+}
+
+.user-panel-menu-item:hover {
+    background-color: #33cc66;
+}
+
+.user-panel-menu-item:hover a {
+    color: #ffffff;
+}
+
+.user-panel-menu-item.active {
+    background-color: #33cc66;
+}
+
+.user-panel-menu-item.active a {
+    color: #ffffff;
+}
+
+.user-panel-menu-item a {
+    font-family: 'Open Sans';
+    font-size: 14px;
+    color: #2e3339;
+    font-weight: 600;
+    text-decoration: none;
+    display: block;
+    padding-top: 7px;
+    padding-left: 10px;
+}
+
+.user-panel-name a {
+    font-family: 'Open Sans';
+    font-size: 28px;
+    color: #2e3339;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.user-panel-email a {
+    font-family: 'Open Sans';
+    font-size: 18px;
+    color: #2e3339;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.user-panel-main-container {
+    padding-top: 43px;
+}
+
+
+/*tab*/
+
+.user-panel-main-container .nav-tabs {
+    border-bottom: 2px solid #DDD;
+    margin-right: 0px;
+}
+
+.user-panel-main-container .nav-tabs>li.active>a,
+.user-panel-main-container .nav-tabs>li.active>a:focus,
+.user-panel-main-container .nav-tabs>li.active>a:hover {
+    border-width: 0;
+}
+
+.user-panel-main-container .nav-tabs>li>a {
+    border: none;
+    color: #2e3339;
+}
+
+.user-panel-main-container .nav-tabs>li.active>a,
+.user-panel-main-container .nav-tabs>li>a:hover {
+    border: none;
+    color: #FF0046 !important;
+    background: transparent;
+}
+
+.user-panel-main-container .nav-tabs>li>a::after {
+    content: "";
+    background: #FF0046;
+    height: 2px;
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    bottom: -1px;
+    transition: all 250ms ease 0s;
+    transform: scale(0);
+}
+
+.user-panel-main-container .nav-tabs>li.active>a::after,
+.user-panel-main-container .nav-tabs>li:hover>a::after {
+    transform: scale(1);
+}
+
+.user-panel-main-container .tab-nav>li>a::after {
+    background: #21527d none repeat scroll 0% 0%;
+    color: #fff;
+}
+
+.user-panel-main-container .tab-pane {
+    padding: 10px 0;
+}
+
+.user-panel-main-container .tab-content {
+    padding: 5px
+}
+
+.user-panel-main-container .card .nav-tabs>li {
+    font-weight: 600;
+    float: left;
+}
+
+.user-panel-main-container .nav-tabs>li.active>a,
+.user-panel-main-container .nav-tabs>li.active>a:hover,
+.user-panel-main-container .nav-tabs>li.active>a:focus {
+    background: #f1f1f1;
+}
+
+.user-panel-main-container .card {
+    background: #f1f1f1 none repeat scroll 0% 0%;
+    font-family: 'Open Sans';
+    box-shadow: none;
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+
+.user-panel-main-container .tab-content {
+    font-family: 'Open Sans';
+    font-weight: 500;
+    background-color: #F1F1F1;
+}
+
+.user-panel-main-container .tab-content .table .table-title {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.user-panel-update-info .alert {
+    background-color: #FF0046;
+    margin-bottom: 10px;
+    overflow: auto;
+    padding: 5px 10px;
+    color: #FFF;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    border-radius: 0px;
+}
+
+.user-panel-update-info .alert a {
+    opacity: 1;
+    color: #FFF;
+}
+
+.user-panel-update-info .alert-success {
+    background-image: none;
+    border: none;
+}
+
+.user-panel-main-container .tab-content .table td .btn {
+    background-color: #33cc66;
+    border-radius: 0px;
+    border-color: #33cc66;
+    color: #FFF;
+    height: 20px;
+    padding: 0px 12px;
+    font-size: 13px;
+    border: none;
+}
+
+.user-panel-main-container-info {
+    padding-left: 10px;
+}
+
+.user-panel-main-container-info label {
+    font-weight: 600;
+}
+
+.user-panel-info-title {
+    font-family: 'Open Sans';
+    font-size: 14px;
+    color: #2e3339;
+    font-weight: 600;
+}
+
+.user-panel-main-container .tab-content .user-avatar .img-responsive {
+    margin-top: 10px;
+    height: 170px;
+}
+
+.user-panel-main-container .tab-content .user-panel-upload-avatar {
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+.user-panel-main-container .tab-content .form-group {
+    width: 300px;
+}
+
+.user-panel-main-container .tab-content .form-group .form-control {
+    border-radius: 0px;
+    font-weight: 600;
+}
+
+.user-panel-main-container .tab-content .btn {
+    border-radius: 0px;
+    background-color: #33cc66;
+    color: #FFF;
+}
+
+.user-panel-main-container .tab-content .table .btn:hover {
+    background-color: #FF0046;
+}
+
+.user-panel-info>.btn-submit-room {
+    margin-top: 15px;
+    background: #33cc66;
+    color: #FFF;
+    padding: 6px 12px;
+    border: none;
+    margin-right: 0px;
+    margin-bottom: 10px;
+}
+
+.user-panel-info>.btn-submit-room:hover {
+    background: #FF0046;
+}
+
+.user-panel-main-container .tab-content .table .table-title {
+    font-weight: 600;
+}
+
+.user-panel-main-container .tab-content .table {
+    font-weight: 600;
+}
+
+.user-panel-main-container .tab-content .table .btn {
+    font-weight: 600;
+}

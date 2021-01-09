@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="/static/css/footer.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <footer id="footer" class="show">
+        <div class="footer-info">
+            <div class="container_footer">
+                <div class="inner">
+                    <a class="footer-logo" href="index.html"><img src="/static/img/logothuetro.png"></a>
+                    <div class="content">
+                        <div class="block block-1">
+                            <h2>Về chúng tôi</h2>
+                            <ul>
+                                <li><a href="#" target="_blank">Quy chế hoạt động</a></li>
+                                <li><a href="#" target="_blank">Chính sách bảo mật</a></li>
+                                <li><a href="#" target="_blank">Giải quyết khiếu nại</a></li>
+                                <li><a href="#" target="_blank">Điều khoản &amp; Cam kết</a></li>
+                                <li><a href="#" target="_blank">Góp ý</a></li>
+                            </ul>
+                        </div>
+                        <div class="block block-2">
+                            <h2>Hệ thống</h2>
+                            <ul>
+                                <li><a href="#">Phòng trọ</a></li>
+                                <li><a href="#">Nhà, căn hộ cho thuê</a></li>
+                                <li><a href="#">Tìm ở ghép</a></li>
+                            </ul>
+                        </div>
+                        <div class="block block-3">
+                            <h2>Liên kết dịch vụ</h2>
+                            <ul>
+                                <li><a href="#" target="_blank">Nhà, đất, căn hộ chung cư</a></li>
+                                <li><a href="#" target="_blank">Phòng trọ, nhà trọ</a></li>
+                                <li><a href="#" target="_blank">Mặt bằng, văn phòng làm việc</a></li>
+                            </ul>
+                        </div>
+                        <div class="block block-4">
+                            <h2>Liên hệ chúng tôi</h2>
+                            <ul>
+                                <li>Hotline 1: <a href="tel:0911067111">0911 067 111</a></li>
+                                <li>Hotline 2: <a href="tel:0869988279">086 9988 279</a></li>
+                                <li>Email: <a href="mailto:giapdz104@gmail.com" target="_blank">giapdz104@gmail.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright_footer">
+            <div class="container">
+                Copyright © 2020 OHI Co.Ltd
+            </div>
+        </div>
+        <div id="bot">
+            <a id="top" class="back-to-top" style="color: #007bff;">
+                <i class="fa fa-chevron-circle-up fa-3x"></i>
+
+        </div>
+        <script>
+            //  $('#top').hide(500);
+            $(window).on('scroll', function() {
+                var scrollTop = $(window).scrollTop();
+                if (scrollTop > 0) {
+                    $('#top').show(500);
+                    //$('#top').fadeIn(500);
+                } else {
+                    //$('#top').fadeOut(500);
+                    $('#top').hide(500);
+                }
+            });
+
+            $('#top').on('click', function(e) {
+                $('html,body').animate({
+                    scrollTop: 0
+                }, "slow");
+            });
+        </script>
+        </div>
+</body>
+</footer>
+
+</html>

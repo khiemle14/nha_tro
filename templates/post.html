@@ -1,0 +1,507 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Đăng tin cho thuê phòng
+{% endblock %}
+{% block extra_head %}
+    <link rel="stylesheet" href="/static/css/post.css">
+{% endblock %}
+
+{% block content %}
+    <div id="header"></div>
+    <div class="main">
+    <section class="content mainContent">
+        <div class="container content_cat ">
+
+
+            <div class="pro_post_form_top">
+                <div class="title">
+                    Đăng tin cho thuê phòng trọ |
+                    <a href="">Thay đổi danh mục đăng tin</a>
+                </div>
+            </div>
+            <div class="pro_post_form_left">
+                <div class="pro_post_form_help">
+                    <div class="title">Hướng dẫn đăng tin</div>
+                    <div class="content">
+                        <b>Nội dung tốt</b><br>
+                        - Nhập ảnh thật được nhiều người xem hơn<br>
+                        - Nhập đầy đủ địa chỉ nhà đất cho thuê<br>
+                        - Nhập đầy đủ diện tích nhà đất cho thuê<br>
+                        - Nhập đầy đủ giá cả, chứng nhận pháp lý <br>
+                        - Miêu tả những điểm nổi bật, đặc thù của bất động sản.<br><br>
+                        <b>Nội dung không tốt</b><br>
+                        - Thông tin trùng lặp với bài đã đăng<br>
+                        - Thiếu địa chỉ nhà đất đất cụ thể<br>
+                        - Thiếu diện tích cụ thể<br>
+                        - Thiếu giá cả, chứng nhận pháp lý cụ thể
+                    </div>
+                </div>
+                <div class="pro_post_form_mau">
+                    <div class="title">Tin đăng mẫu</div>
+                    <ul class="examples">
+                        <li>
+                            <div>
+                                <span class="ex_title">Tiêu đề: </span>
+                                <span class="title_content">
+                      Cho thuê chưng cu mini tại số nhà 27 ngõ 29, phố võng thị, quận tây hồ
+                    </span>
+                            </div>
+                            <div class="ex_content">
+                                Diện tích 20m2 công trình phụ (bếp + 1 phòng vệ sinh) khép kín nhà mới xây theo phong
+                                cách mới hiên đại có: máy điều hòa nhiệt độ, internet, truyền hình cáp, bình nước
+                                nóng.... giao thông thuận tiện ô tô đỗ cửa, nhà cách hồ tây 50m. giá thuê: 3
+                                triệu/tháng.
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="ex_title">Tiêu đề: </span>
+                                <span class="title_content">
+                      Chính chủ cho thuê căn hộ chung cư mini 530 thụy khuê , 2 ngủ full đồ
+                    </span>
+                            </div>
+                            <div class="ex_content">
+                                Chính chủ cho thuê căn hộ chung cư mini 530 thụy khuê mô tả : diện tích căn hộ 45m gồm 2
+                                ngủ, 1 khách , bếp, wc, ban công nhà có đầy đủ đồ như tủ bếp, bếp từ hút mùi , bình nóng
+                                lạnh, thiết bị wc, giường tủ, tivi, tủ lạnh, điều hòa ,bàn trà.... căn hộ tầng 6, có
+                                thang máy, thang bộ, tầng trệt để xe ...
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+             <div class="pro_post_form_right">
+
+                <div class="content">
+                    <form method="POST" class="user_form " enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ formset.management_form }}
+                    <div class="user_form_pro">
+
+                        <div class="user_form_pro_content ">
+                            <div class="form_item">
+                                <div class="item">
+                                    <label>Đăng ảnh </label>
+                                    <div class="item_input">
+                                        <div class="item_input_image">
+                                            <div class="tit2">
+                                                <b>"Một hình ảnh bằng cả ngàn lời nói". Hãy đăng ảnh để được nhiều người
+                                                    xem hơn.</b><br/>
+                                                Click vào ảnh bạn muốn chọn làm ảnh đại diện. Mặc định là ảnh đầu tiên.
+                                            </div>
+                                        <div>
+
+                                            <input type="file" name="images" id="id_form-0-images" multiple="true">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="user_form_pro_content">
+
+
+                                <div class="item">
+                                    <label>Tiêu đề tin <span class="red">(*)</span></label>
+                                    <div class="item_input">
+                                        <input name="title" class="pro_title" type="text" id="id_title" value=""
+                                               placeholder="Cho thuê nhà trọ, phòng trọ ở đâu...">
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <label>Loại phòng<span class="red">(*)</span></label>
+                                        <select name="type" required="" id="id_type">
+                                          <option value="" selected="">---------</option>
+
+                                          <option value="1">Phòng trọ</option>
+
+                                          <option value="2">Chung cư mini</option>
+
+                                          <option value="3">Nhà nguyên căn</option>
+
+                                          <option value="4">Chung cư nguyên căn</option>
+
+                                        </select>
+                                </div>
+                                <div class="item">
+                                    <label>Nhà bếp<span class="red">(*)</span></label>
+                                    <select name="kitchen" required="" id="id_kitchen">
+                                      <option value="" selected="">---------</option>
+
+                                      <option value="0">Bếp riêng</option>
+
+                                      <option value="1">Chung</option>
+
+                                      <option value="2">Không nấu ăn</option>
+
+                                    </select>
+                                </div>
+
+                                <div class="item">
+                                    <div class="item_sub">
+                                        <label>Nhà tắm riêng <span class="red">(*)</span></label>
+                                        <div class="item_input">
+                                            <div class="form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" name="private_bathroom" id="id_private_bathroom" class="form-check-input" value="1">Có
+                                                    <input type="hidden" name="private_bathroom" id="id_private_bathroom" class="form-check-input" value="0">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item_sub">
+                                        <label>Nóng lạnh<span class="red">(*)</span></label>
+                                        <div class="item_input">
+                                            <div class="form-check-inline">
+                                                <label class="form-check-label">
+                                                    <input type="checkbox" class="form-check-input" value="1" name="co_nonglanh" id="id_co_nonglanh" >Có
+                                                    <input type="hidden" class="form-check-input" value="0" name="co_nonglanh" id="id_co_nonglanh" >
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="item">
+                                    <label>Điều hòa<span class="red">(*)</span></label>
+                                    <div class="item_input">
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" value="1" name="air_conditional" id="id_ari_conditional">Có
+                                                <input type="hidden" class="form-check-input" value="0" name="air_conditional" id="id_ari_conditional">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <label>Ban công<span class="red">(*)</span></label>
+                                    <div class="item_input">
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" name="ban_cong" id="id_bancong" value="1">Có
+                                                <input type="hidden" class="form-check-input" name="ban_cong" id="id_bancong" value="0">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <label>Mô tả<span class="red">(*)</span></label>
+                                    <div class="item_input">
+                                        <textarea name="other_ultily" class="input_des pro_description"
+                                                  id="id_other_ultily"
+                                                  placeholder="Mô tả thêm thông tin, tiện ích, qui định, giá cả..."></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="item">
+                                    <div class="item_sub item_sub_first">
+                                        <label>Tỉnh/Thành phố</label>
+                                        <div class="item_input">
+                                            <select class="input_select pro_city_pa_id" name="pro_city_pa_id"
+                                                    id="pro_city_pa_id">
+                                                <option value="">- Chọn tỉnh/thành phố -</option>
+                                                <option value="3">Hà Nội</option>
+                                                <option value="10">Đà nẵng</option>
+                                                <option value="4">TP Hồ Chí Minh</option>
+                                                <option value="35">An Giang</option>
+                                                <option value="47">Bắc Cạn</option>
+                                                <option value="54">Bắc Giang</option>
+                                                <option value="68">Bắc Kạn</option>
+                                                <option value="60">Bạc Liêu</option>
+                                                <option value="19">Bắc Ninh</option>
+                                                <option value="13">Bến Tre</option>
+                                                <option value="23">Bình Dương</option>
+                                                <option value="29">Bình Phước</option>
+                                                <option value="57">Bình Thuận</option>
+                                                <option value="48">Bình Định</option>
+                                                <option value="5">Cà Mau</option>
+                                                <option value="26">Cần Thơ</option>
+                                                <option value="49">Cao Bằng</option>
+                                                <option value="53">Gia Lai</option>
+                                                <option value="63">Hà Giang</option>
+                                                <option value="46">Hà Nam</option>
+                                                <option value="3">Hà Nội</option>
+                                                <option value="55">Hà Tĩnh</option>
+                                                <option value="11">Hải Dương</option>
+                                                <option value="34">Hải Phòng</option>
+                                                <option value="43">Hậu Giang</option>
+                                                <option value="40">Hòa Bình</option>
+                                                <option value="28">Huế</option>
+                                                <option value="2">Hưng Yên</option>
+                                                <option value="38">Khánh Hòa</option>
+                                                <option value="16">Kiên Giang</option>
+                                                <option value="58">Kon Tum</option>
+                                                <option value="42">Lai Châu</option>
+                                                <option value="44">Lâm Đồng</option>
+                                                <option value="45">Lạng Sơn</option>
+                                                <option value="33">Lào Cai</option>
+                                                <option value="12">Long An</option>
+                                                <option value="7">Nam Định</option>
+                                                <option value="27">Nghệ An</option>
+                                                <option value="56">Ninh Bình</option>
+                                                <option value="32">Ninh Thuận</option>
+                                                <option value="36">Phú Thọ</option>
+                                                <option value="39">Phú Yên</option>
+                                                <option value="51">Quảng Bình</option>
+                                                <option value="30">Quảng Nam</option>
+                                                <option value="31">Quảng Ngãi</option>
+                                                <option value="8">Quảng Ninh</option>
+                                                <option value="52">Quảng Trị</option>
+                                                <option value="18">Sóc Trăng</option>
+                                                <option value="50">Sơn La</option>
+                                                <option value="37">Tây Ninh</option>
+                                                <option value="25">Thái Bình</option>
+                                                <option value="24">Thái Nguyên</option>
+                                                <option value="20">Thanh Hoá</option>
+                                                <option value="67">Thành Phố Hà Nội</option>
+                                                <option value="1">Tiền Giang</option>
+                                                <option value="66">Tỉnh Thái Bình</option>
+                                                <option value="4">TP Hồ Chí Minh</option>
+                                                <option value="17">Trà Vinh</option>
+                                                <option value="41">Tuyên Quang</option>
+                                                <option value="15">Vĩnh Long</option>
+                                                <option value="59">Vĩnh Phúc</option>
+                                                <option value="21">Vũng Tàu</option>
+                                                <option value="61">Yên Bái</option>
+                                                <option value="10">Đà Nẵng</option>
+                                                <option value="6">Đắc Lắc</option>
+                                                <option value="9">Đắk Nông</option>
+                                                <option value="62">Điện Biên</option>
+                                                <option value="22">Đồng Nai</option>
+                                                <option value="14">Đồng Tháp</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="item_sub item_sub_last ">
+                                        <label>Quận/Huyện</label>
+                                        <div class="item_input">
+                                            <select class="input_select pro_city_id" name="pro_city_id"
+                                                    id="pro_city_id">
+                                                <option value="">- Chọn quận/huyện -</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="item">
+                                    <div class="item_sub item_sub_first">
+                                        <label>Diện tích (m2)</label>
+                                        <div class="item_input">
+                                            <input name="area" class="pro_acreage" type="number" id="id_area"
+                                                   value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="item_sub item_sub_last ">
+                                        <label>Địa chỉ nhà</label>
+                                        <div class="item_input">
+                                            <input name="address" class="pro_addr" type="text" id="id_address" value="">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="item">
+                                    <div class="item_sub item_sub_first">
+                                        <label>Giá thuê phòng (/tháng) <span class="red">(*)</span></label>
+                                        <div class="item_input">
+                                            <input name="price" class="pro_price" type="number" id="id_price"
+                                                   value="">
+                                        </div>
+                                    </div>
+                                    <div class="item_sub">
+                                        <b class="pro_price_view red"></b>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <label>Giá dịch vụ<span class="red">(*)</span></label>
+                                    <div class="item_input">
+                                        <input name="service_charge" class="pro_title" type="text" id="id_service_charge" value=""
+                                               placeholder="Cho thuê nhà trọ, phòng trọ ở đâu...">
+                                    </div>
+                                </div>
+
+                                <div class="item_message">
+                                    <label>&nbsp;</label>
+                                    <p class="message"></p>
+                                </div>
+                                <div class="item">
+                                    <div class="item_sub item_sub_first">
+                                        <label>Thời gian đăng bài <span class="red">(*)</span></label>
+                                        <div class="item_input">
+                                            <input name="longevity" min="7" class="pro_price" type="number" id="id_longevity"
+                                                   value="">
+                                        </div>
+                                    </div>
+                                    <div class="item_sub">
+                                        <b class="pro_price_view red"></b>
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div class="clear"></div>
+                        <div class="item">
+                                    <label>&nbsp;</label>
+                                    <button type="submit" value="" class="btnSubmit ">Cập nhật</button>
+                                </div>
+                    </div>
+                    </div>
+                    </form>
+                </div>
+
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    var def_val = '';
+                    var def_arr = [];
+
+                    //dang nhap
+                    $(".form_no_login").submit(function (e) {
+                        alert('Vui lòng đăng nhập để đăng tin.');
+                        e.preventDefault();
+                    });
+
+
+                    $(".pro_price").keyup(function () {
+                        var pro_price = $(this).val();
+                        $(".pro_price_view").html(addCommas(pro_price));
+                    });
+                    $('.user_form').on('submit', function (e) {
+                        var pro_title = $(".pro_title").val();
+                        var pro_cat_id = $(".pro_cat_id").val();
+                        var pro_price = $(".pro_price").val();
+                        var pro_description = $(".pro_description").val();
+
+                        if (pro_title == null || pro_title == '') {
+                            $(".pro_title").focus();
+                            $(".item_message .message").html('Vui lòng nhập tiêu đề tin.');
+                            e.preventDefault();
+                        {#} else if (pro_cat_id == null || pro_cat_id == '' || pro_cat_id == 0) {#}
+                        {#    $(".pro_cat_id").focus();#}
+                        {#    $(".item_message .message").html('Vui lòng chọn danh mục đăng tin.');#}
+                        {#    e.preventDefault();#}
+                        } else if (pro_price == null || pro_price == '' || pro_price == 0) {
+                            $(".pro_price").focus();
+                            $(".item_message .message").html('Vui lòng nhập giá .');
+                            e.preventDefault();
+                        } else if (pro_description == null || pro_description == '' || pro_description == 0) {
+                            $(".pro_description").focus();
+                            $(".item_message .message").html('Vui lòng nhập nội dung mô tả.');
+                            e.preventDefault();
+                        } else {
+                            $(".item_message .message").html('');
+                        }
+
+                    });
+
+                });
+
+                function adm_select2(sl2_obj, sl2_url, sl2_val, sl2_arr, message) {
+                    $(sl2_obj).val(sl2_val).select2({
+                        multiple: true,
+                        isTemp: false,
+                        placeholder: 'Please enter keyword',
+                        tokenSeparators: [','],
+                        createSearchChoice: function (term, data) {
+                        },
+                        ajax: {
+                            url: sl2_url,
+                            dataType: 'json',
+                            type: 'POST',
+                            data: function (term, page) {
+                                return {
+                                    key_word: term,
+                                };
+                            },
+                            results: function (data, page) {
+                                lastResults = data.results;
+                                return {
+                                    results: data
+                                };
+
+                            }
+                        },
+                        initSelection: function (element, callback) {
+                            var data = sl2_arr
+                            callback(data);
+                        },
+                        maximumSelectionSize: 1,
+                        formatSelectionTooBig: function (limit) {
+                            return 'Chỉ nhập tối đa ' + limit + ' ' + message;
+                        }
+                    });
+                }
+
+                function addCommas(nStr) {
+                    nStr += '';
+                    x = nStr.split('.');
+                    x1 = x[0];
+                    x2 = x.length > 1 ? '.' + x[1] : '';
+                    var rgx = /(\d+)(\d{3})/;
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + ',' + '$2');
+                    }
+                    return x1 + x2;
+                }
+            </script>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#photoimg').off('click').on('change', function () {
+                        $("#imageform").ajaxForm({
+                            target: '#preview',
+                            beforeSubmit: function () {
+                                $("#imageloadstatus").show();
+                                $("#imageloadbutton").hide();
+                            },
+                            success: function () {
+                                $("#imageloadstatus").hide();
+                                $("#imageloadbutton").show();
+                                //Gan gia tri cho anh dai dien và danh sách anh
+                                var list_img = "";
+                                var avatar = "";
+                                var count = 0;
+                                $(".imgList").each(function () {
+                                    list_img = list_img + "," + $(this).attr('data');
+                                    if (count == 0) {
+                                        avatar = $(this).attr('data');
+                                    }
+                                    count++;
+                                });
+                                $(".pro_avatar_list").val(list_img);
+                                $(".pro_avatar").val(avatar);
+                                console.log(list_img);
+                            },
+                            error: function () {
+                                $("#imageloadstatus").hide();
+                                $("#imageloadbutton").show();
+                            }
+                        }).submit();
+
+
+                    });
+                    $("#preview").on("click", ".imgList", function () {
+                        $(".imgList").removeClass('img_avatar');
+                        $(this).addClass('img_avatar');
+                        var avatar = $(this).attr('data');
+                        $(".pro_avatar").val(avatar);
+                    });
+                });
+
+            </script>
+
+    </section>
+    </div>
+{% endblock %}

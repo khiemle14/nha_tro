@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for image in roomDetail.roomimage_set.all %}
+        <img src="{{ image.images.url }}" alt="">
+    {% endfor %}
+    <h1>{{ roomDetail.title }}</h1>
+    <div class="col" style="border-right: 1px solid #e5e5e5;">
+        <p class="pro_price"> <span class="pro_lable">Giá: </span> {{ roomDetail.price }} </p>
+        <p class="pro_acreage"> <span class="pro_lable">Diện tích: </span> {{ roomDetail.area }} </p>
+        <p class="item_detail"> <span class="pro_lable">Địa chỉ nhà: </span> {{ roomDetail.address }}</p>
+    </div>
+    <div>
+        {% for comment in roomDetail.comment_set.all %}
+            <p>
+            {{ comment.comment_user }}
+            <br>
+            {{ comment.comment }}
+            {{ comment.vote }}
+            </p>
+
+        {% endfor %}
+    </div>
+</body>
+</html>

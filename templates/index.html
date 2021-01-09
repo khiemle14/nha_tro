@@ -1,0 +1,303 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Trang chủ
+{% endblock %}
+{% block extra_head %}
+    <script src="{% static '/js/test.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+{% endblock %}
+{% block content %}
+     <!-- end slider -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark searchbar ">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/"><span class="fas fa-home"></span></a>
+            </div>
+
+            <div class="container collapse navbar-collapse" id="navb">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/phongtro/">Phòng trọ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ccmn/">Chung cư mini</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/nnc/">Nhà nguyên căn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ccnc/">Chung cư nguyên căn</a>
+                    </li>
+
+                </ul>
+                <form class="form-inline my-2 my-lg-0" method="get" id="search-form">
+                    {% csrf_token %}
+                     <input class="form-control mr-sm-2 ipSeacrh" type="text" name="q" id="id_q" placeholder="Tìm kiếm phòng trọ" >
+                    <button class="btn btn-success my-2 my-sm-0" type="submit">Tìm kiếm...</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+     <!-- end slider -->
+    <div class="content container">
+        <div class="left-content col-9" id="roomlist">
+
+            <div class="hot-post border-bottom">
+                <div class="hot-post_title font-weight-bold my-3">
+                    <h4>Cho thuê nhà trọ, cho thuê phòng trọ giá rẻ, tìm nhà trọ, tìm phòng trọ</h4>
+                </div>
+
+                <div class="hot-post_content row">
+                    {% for item in roomList1 %}
+                    <div class="hot-room col">
+                        <div class="new-room-img">
+                            <a href="/room/{{ item.id }}"><img src="{{ item.roomimage_set.all.0.images.url }}" alt=""></a>
+
+                        </div>
+                        <div class="basic-info">
+                            <a href="/room/{{ item.id }}">{{ item.title|truncatewords_html:6|safe}}</a>
+                            <p>Giá: {{ item.price }} triệu đồng/tháng</p>
+
+                        </div>
+                        <div class="view">
+                         <i class="fa fa-eye"></i>{{ item.viewed }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+            <div class="exp-post" >
+                <div class="hot-post_title font-weight-bold my-3">
+                    <h5>CHO THUÊ PHÒNG TRỌ</h5>
+                </div>
+                <ul class="room_post_list">
+                    {% for item in roomList2 %}
+                    <li class="room_post rp1">
+                        <div class="room_post_img">
+                            <a href="/room/{{ item.id }}"><img src="{{ item.roomimage_set.all.0.images.url }}" alt=""></a>
+                        </div>
+                        <div class="room_post_content">
+                            <p class="price"><span>{{ item.price }} triệu đồng/tháng</span></p>
+                            <h3 class="title"><a href="/room/{{ item.id }}">{{ item.title|truncatewords_html:8|safe}}</a></h3>
+
+                            <div class="intro">{{ item.service_charge}}
+                            </div>
+                            <div class="info1">
+                                Địa chỉ :  {{ item.address }}
+                            </div>
+                            <div class="info2">
+                                Gần các địa chỉ: {{ item.nearby }}
+                            </div>
+
+                        </div>
+                        <div class="view">
+                            <i class="fa fa-eye"></i>{{ item.viewed }}
+                            </div>
+                        <div class="clear"></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="hot-post_title font-weight-bold my-3">
+                    <h5>CHO THUÊ CHUNG CƯ MINI</h5>
+                </div>
+                <ul class="room_post_list">
+                    {% for item in roomList3 %}
+                    <li class="room_post rp1">
+                        <div class="room_post_img">
+                            <a href="/room/{{ item.id }}"><img src="{{ item.roomimage_set.all.0.images.url }}" alt=""></a>
+                        </div>
+                        <div class="room_post_content">
+                            <p class="price"><span>{{ item.price }} triệu đồng/tháng</span></p>
+                            <h3 class="title"><a href="/room/{{ item.id }}">{{ item.title|truncatewords_html:8|safe}}</a></h3>
+
+                            <div class="intro">{{ item.service_charge}}
+                            </div>
+                            <div class="info1">
+                                Địa chỉ :  {{ item.address |truncatewords_html:8|safe}}
+                            </div>
+                            <div class="info2">
+                                Gần các địa chỉ: {{ item.nearby }}
+                            </div>
+
+                        </div>
+                        <div class="view">
+                            <i class="fa fa-eye"></i>{{ item.viewed }}
+                            </div>
+                        <div class="clear"></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="hot-post_title font-weight-bold my-3">
+                    <h5>CHO THUÊ NHÀ NGUYÊN CĂN</h5>
+                </div>
+                <ul class="room_post_list">
+                    {% for item in roomList4 %}
+                    <li class="room_post rp1">
+                        <div class="room_post_img">
+                            <a href="/room/{{ item.id }}"><img src="{{ item.roomimage_set.all.0.images.url }}" alt=""></a>
+                        </div>
+                        <div class="room_post_content">
+                            <p class="price"><span>{{ item.price }} triệu đồng/tháng</span></p>
+                            <h3 class="title"><a href="/room/{{ item.id }}">{{ item.title|truncatewords_html:8|safe}}</a></h3>
+
+                            <div class="intro">{{ item.service_charge}}
+                            </div>
+                            <div class="info1">
+                                Địa chỉ :  {{ item.address |truncatewords_html:8|safe}}
+                            </div>
+                            <div class="info2">
+                                Gần các địa chỉ: {{ item.nearby }}
+                            </div>
+
+                        </div>
+                        <div class="view">
+                            <i class="fa fa-eye"></i>{{ item.viewed }}
+                            </div>
+                        <div class="clear"></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div class="hot-post_title font-weight-bold my-3">
+                     <h5>CHO THUÊ CHUNG CƯ NGUYÊN CĂN</h5>
+                </div>
+                <ul class="room_post_list">
+                    {% for item in roomList5 %}
+                    <li class="room_post rp1">
+                        <div class="room_post_img">
+                            <a href="/room/{{ item.id }}"><img src="{{ item.roomimage_set.all.0.images.url }}" alt=""></a>
+                        </div>
+                        <div class="room_post_content">
+                            <p class="price"><span>{{ item.price }} triệu đồng/tháng</span></p>
+                            <h3 class="title"><a href="/room/{{ item.id }}">{{item.title|truncatewords_html:8|safe}}</a></h3>
+
+                            <div class="intro">{{ item.service_charge}}
+                            </div>
+                            <div class="info1">
+                                Địa chỉ :  {{ item.address |truncatewords_html:8|safe}}
+                            </div>
+                            <div class="info2">
+                                Gần các địa chỉ: {{ item.nearby }}
+                            </div>
+
+                        </div>
+                        <div class="view">
+                            <i class="fa fa-eye"></i>{{ item.viewed }}
+                            </div>
+                        <div class="clear"></div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="right-content col-3">
+            <div class="right_title my-3">
+                <h4>PHÒNG TẠI HÀ NỘI</h4>
+            </div>
+            <ul class="right_room_list">
+                {% for item in hanoi_roomlist %}
+                <li class="rr_post">
+                    <a href="/room/{{ item.id }}" class="img"><img src="{{ item.roomimage_set.all.0.images.url }}" alt=""></a>
+                    <a href="/room/{{ item.id }}" class="title">{{ item.title|truncatewords_html:8|safe}}</a>
+                    <p class="price">{{ item.price}}</p>
+                    <div class="clear"></div>
+
+                </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+    <script>
+    document.getElementById("id_q").value="{{ query }}";
+            $("#search-form").submit(function(e) {
+                            e.preventDefault();
+
+                            $.ajax({
+                                type:'GET',
+                                url:'',
+                                data:{
+
+                                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+                                    q:$('#id_q').val(),
+                                },
+                                success: function(response){
+                                    $('#id_q').val('')
+                                    $('#roomlist').html(response)
+
+                                {#$("#comment_list").append(temp);#}
+
+                                },
+                                error: function(response){
+                                    alert("good bye");
+                                },
+                            })
+
+                        })
+    {#$(document).ready(function(){#}
+  // $("#myInput").on("keyup", function() {
+  //   var value = $(this).val().toLowerCase();
+  //   $(".room_post").filter(function() {
+  //     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+  //   });
+  // });
+
+{#  var x ="";#}
+{##}
+{##}
+{#  $(".dropdown-item").on("click",function(){#}
+{##}
+{##}
+{##}
+{##}
+{#    $(this).addClass("active");#}
+{#    x = $(".active").text();#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#  })#}
+{##}
+{##}
+{##}
+{##}
+{##}
+{#  $("#search-btn").on("click",function(e){#}
+{#    x+=" "  + $("#myInput").val().toLowerCase();#}
+{#    alert(x);#}
+{#    e.preventDefault();#}
+{#    $.ajax({#}
+{#        type:'GET',#}
+{#        url:'',#}
+{#        data:{#}
+{##}
+{#            csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),#}
+{#            q:x,#}
+{#        },#}
+{#        success: function(response){#}
+{#            $('#id_q').val('')#}
+{#            alert('hello');#}
+{#            $('#roomlist').html(response)#}
+{##}
+        {#$("#comment_list").append(temp);#}
+{##}
+{#        },#}
+{#        error: function(response){#}
+{#            alert("good bye");#}
+{#        },#}
+{#    })#}
+{#    x="";#}
+{##}
+{##}
+{#  })#}
+{#});#}
+    </script>
+
+
+{% endblock %}
+

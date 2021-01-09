@@ -1,0 +1,82 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" href="/static/css/dangky.css">
+{% endblock %}
+{% block title %}
+    Đăng ký tài khoản
+{% endblock %}
+{% block content %}
+    <div id="header"></div>
+    <div class="login_form">
+        <div class="title"> Đăng ký </div>
+        <div class="form-group">
+            <a href="#" class="btn btn-primary btn-block ">
+                <i class="fab fa-facebook-f "></i>
+                <rb>Đăng ký bằng tài khoản Facebook</rb>
+            </a>
+        </div>
+        <div class="form-group">
+            <a href="#" class="btn btn-danger btn-block">
+                <i class="fab fa-google text-white"></i> Đăng ký bằng tài khoản Google </a>
+            </button>
+        </div>
+        <div class="text-center"> Hoặc </div>
+        <form class="login" method="post">
+            {%  csrf_token %}
+            <div class="form-group"> {{ form.full_name }}</div>
+            <div class=" form-group "> {{ form.username }}</div>
+            <div class=" form-group "> {{ form.email }}</div>
+            <div class="form-group"> {{ form.phone_number }}</div>
+            <div class=" form-group "> {{ form.password1 }} </div>
+            <div class=" form-group "> {{ form.password2 }} </div>
+            <div class=" form-group "> {{ form.is_owner }} </div>
+
+{#            <div class="form-check-inline">#}
+{#                <label class="form-check-label" for="radio1">#}
+{#                  <input type="radio" class="form-check-input" id="radio1" name="is_owner" value=0 checked>Người thuê trọ#}
+{#                </label>#}
+{#            </div>#}
+{#            <div class="form-check-inline">#}
+{#                <label class="form-check-label" for="radio2">#}
+{#                  <input type="radio" class="form-check-input" id="radio2" name="is_owner" value=1>Chủ nhà trọ#}
+{#                </label>#}
+{#            </div>#}
+            <div class="item_message">
+                <p class="message text-danger"></p>
+            </div>
+            <div class="form-group">
+                <input type="hidden" name="action" value="register">
+                <button class="btnRegister btn btn-warning btn-block btn-lg text-white" type="submit">Đăng ký</button>
+            </div>
+            <div class="clear"></div>
+        </form>
+    </div>
+    <div class="login_form border-0">
+        <div class="form-text">
+            <p> Đã có tài khoản? </p>
+        </div>
+        <div class="form-group">
+            <a href="{% url 'login' %}" class="btn btn-outline-dark btn-block font-weight-bold">ĐĂNG NHẬP NGAY</a></div>
+    </div>
+
+    <script type="text/javascript" src="{% static 'js/dangky.js' %}"></script>
+    <script >
+        var form_fields = document.getElementsByTagName('input')
+        form_fields[1].placeholder="Họ và tên"
+        form_fields[2].placeholder="Tên tài khoản*"
+        form_fields[3].placeholder="Email*"
+        form_fields[4].placeholder="Số điện thoại*"
+        form_fields[5].placeholder="Mật khẩu*"
+        form_fields[6].placeholder="Nhập lại mật khẩu*"
+        for (var field in form_fields)
+        {
+            form_fields[field].className += ' form-control'
+        }
+        {% if alert %}
+            alert('{{ alert }}');
+        {% endif %}
+    </script>
+{% endblock %}
+
